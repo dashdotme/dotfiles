@@ -170,6 +170,7 @@ fi
 # fnm (Fast Node Manager) - OS specific paths
 if [ "$OS_TYPE" = "macos" ]; then
   FNM_PATH="/Users/dashvallance/Library/Application Support/fnm"
+  eval "$(fnm env --use-on-cd --shell zsh)"
 else
   FNM_PATH="$HOME/.local/share/fnm"
 fi
