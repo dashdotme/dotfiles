@@ -118,15 +118,16 @@ fi
 # Aliases
 alias python="python3"
 
-# Python environment setup
-if [ -d "$HOME/.pyenv" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  command -v pyenv >/dev/null && eval "$(pyenv init --path 2>/dev/null || true)"
-  command -v pyenv >/dev/null && eval "$(pyenv init - 2>/dev/null || true)"
-  command -v pyenv >/dev/null && eval "$(pyenv virtualenv-init - 2>/dev/null || true)"
-fi
-
+# Now rely on uv
+# # Python environment setup
+# if [ -d "$HOME/.pyenv" ]; then
+#   export PYENV_ROOT="$HOME/.pyenv"
+#   export PATH="$PYENV_ROOT/bin:$PATH"
+#   command -v pyenv >/dev/null && eval "$(pyenv init --path 2>/dev/null || true)"
+#   command -v pyenv >/dev/null && eval "$(pyenv init - 2>/dev/null || true)"
+#   command -v pyenv >/dev/null && eval "$(pyenv virtualenv-init - 2>/dev/null || true)"
+# fi
+#
 # Java setup - OS specific
 if [ "$OS_TYPE" = "macos" ]; then
   # macOS Java configuration
