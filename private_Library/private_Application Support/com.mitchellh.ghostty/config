@@ -45,7 +45,14 @@
 theme = tokyonight_moon
 auto-update-channel = tip
 
-keybind = shift+ctrl+left_bracket=previous_tab
-keybind = shift+ctrl+right_bracket=next_tab
-keybind = shift+ctrl+,=move_tab:-1
-keybind = shift+ctrl+.=move_tab:+1
+#keybind = shift+super+left_bracket=previous_tab
+#keybind = shift+super+right_bracket=next_tab
+#keybind = shift+super+,=move_tab:-1
+#keybind = shift+super+.=move_tab:+1
+
+keybind = cmd+left_bracket=goto_split:previous
+keybind = cmd+right_bracket=goto_split:next
+
+keybind = cmd+o=new_tab
+keybind = cmd+shift+o=close_tab
+
