@@ -1,0 +1,63 @@
+[user]
+	email = dash@intelics.com.au
+	name = Dash Vallance
+
+[core]
+  editor = nvim
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore_global
+  autocrlf = input
+
+[push]
+	autoSetupRemote = true
+
+[pull]
+	rebase = false
+
+[fetch]
+  output = full
+  prune = true
+
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  track-all = "!for remote in `git branch -r | grep -v '\\->'`; do git branch --track ${remote#origin/} $remote; done"
+  cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
+  cleanup-mine = "!f() { \
+          local_branches=$(git branch | grep -v '\\*' | sed 's/^[ \\t]*//'); \
+          for branch in $local_branches; do \
+              if [ $(git rev-list --count --author=\"$(git config user.name)\" $branch) -eq 0 ]; then \
+                  echo \"Removing $branch (no personal commits)\"; \
+                  git branch -D $branch; \
+              fi; \
+          done; \
+      }; f"
+
+[diff]
+  tool = vimdiff
+
+[difftool]
+  prompt = false
+
+[init]
+  defaultBranch = main
+
+[color]
+  ui = auto
+
+[color "branch"]
+  current = green bold
+  local = yellow bold
+  remote = cyan bold
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[color "status"]
+  added = green bold
+  changed = yellow bold
+  untracked = red bold
+
