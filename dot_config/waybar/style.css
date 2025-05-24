@@ -1,130 +1,120 @@
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrains Mono";
-    font-weight: bold;
-    font-size: 16px;
-    min-height: 0;
+  min-height: 0;
+  min-width: 0;
+  font-family: Lexend, "JetBrainsMono NFP";
+  font-size: 16px;
+  font-weight: 600;
 }
 
 window#waybar {
-    background: rgba(21, 18, 27, 0);
-    color: #cdd6f4;
-}
-
-tooltip {
-    background: #1e1e2e;
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  /* background-color: #1e1e2e; */
+  /* background-color: #181825; */
+  background-color: #11111b;
+  /* background-color: rgba(24, 24, 37, 0.6); */
 }
 
 #workspaces button {
-    padding: 5px;
-    color: #636777;
-    margin-right: 5px;
-}
-
-#workspaces button.active {
-    background-color: #000;
-}
-
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-    border-radius: 10px;
-}
-
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-    border-radius: 10px;
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  /* background-color: #181825; */
+  background-color: #1e1e2e;
+  color: #cdd6f4;
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #11111b;
-    border-radius: 5px;
+  color: #1e1e2e;
+  background-color: #cdd6f4;
 }
 
-/* Common styling for all modules */
-#window,
+#workspaces button.active {
+  background-color: #1e1e2e;
+  color: #89b4fa;
+}
+
+#workspaces button.urgent {
+  background-color: #1e1e2e;
+  color: #f38ba8;
+}
+
 #clock,
-#battery,
 #pulseaudio,
-#network,
-#bluetooth,
-#custom-temperature,
-#temperature,
-#memory,
+#custom-logo,
+#custom-power,
+#custom-spotify,
+#custom-notification,
 #cpu,
-#workspaces,
 #tray,
-#custom-memory {
-    background: #1e1e2e;
-    padding: 0 10px;
-    margin: 5px 0;
-    border: 2px solid #313244;
-    border-radius: 10px;
+#memory,
+#window,
+#mpris {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  /* background-color: #181825; */
+  background-color: #1e1e2e;
 }
 
-/* Specific modules styling */
-#workspaces {
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-left: 5px;
+#mpris.playing {
+  color: #a6e3a1;
 }
 
-#window {
-    margin-left: 60px;
-    margin-right: 60px;
+#mpris.paused {
+  color: #9399b2;
 }
 
-#clock {
-    color: #fab387;
-    margin-left: 10px;
+#custom-sep {
+  padding: 0px;
+  color: #585b70;
 }
 
-#network {
-    color: #f9e2af;
-}
-
-#bluetooth {
-    color: #89b4fa;
-    margin-right: 10px;
-}
-
-#temperature {
-    color: #eba0ac;
-}
-
-#memory {
-    color: #eba0ac;
+window#waybar.empty #window {
+  background-color: transparent;
 }
 
 #cpu {
-    color: #eba0ac;
+  color: #94e2d5;
+}
+
+#memory {
+  color: #cba6f7;
+}
+
+#clock {
+  color: #74c7ec;
+}
+
+#temperature {
+  color: #afeeee;
+}
+
+#clock.simpleclock {
+  color: #89b4fa;
+}
+
+#window {
+  color: #cdd6f4;
 }
 
 #pulseaudio {
-    color: #89b4fa;
+  color: #b4befe;
 }
 
-#pulseaudio.microphone {
-    color: #cba6f7;
-    margin-right: 10px;
+#pulseaudio.muted {
+  color: #a6adc8;
 }
 
-#tray {
-    margin-right: 10px;
+#custom-logo {
+  color: #89b4fa;
 }
 
-/* Remove border-radius overrides as we want all elements to have the same rounded style */
-#custom-temperature,
-#backlight,
-#network,
-#clock,
-#pulseaudio.microphone {
-    border-radius: 10px;
+#custom-power {
+  color: #f38ba8;
+}
+
+tooltip {
+  background-color: #181825;
+  border: 2px solid #89b4fa;
 }
