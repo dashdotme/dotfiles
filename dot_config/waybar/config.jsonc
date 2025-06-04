@@ -21,6 +21,7 @@
     "pulseaudio",
     "clock",
     "clock#simpleclock",
+    "battery",
     "tray",
     "custom/notification",
     "custom/power"
@@ -110,6 +111,30 @@
       ]
     },
     "on-click": "pavucontrol"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 40,
+      "critical": 30
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
   },
   "custom/sep": {
     "format": "|",

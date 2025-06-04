@@ -1,3 +1,5 @@
+@import "colors.css";
+
 * {
   min-height: 0;
   min-width: 0;
@@ -11,7 +13,8 @@ window#waybar {
   transition-duration: 0.5s;
   /* background-color: #1e1e2e; */
   /* background-color: #181825; */
-  background-color: #11111b;
+  /* background-color: #11111b; */
+  background-color: @background;
   /* background-color: rgba(24, 24, 37, 0.6); */
 }
 
@@ -48,6 +51,7 @@ window#waybar {
 #cpu,
 #tray,
 #memory,
+#battery,
 #window,
 #mpris {
   padding: 0.3rem 0.6rem;
@@ -92,6 +96,10 @@ window#waybar.empty #window {
 
 #clock.simpleclock {
   color: #89b4fa;
+}
+
+#battery {
+  color: #9bd1a6;
 }
 
 #window {
