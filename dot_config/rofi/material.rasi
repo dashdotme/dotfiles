@@ -1,0 +1,142 @@
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color: @on-surface;
+    font-family: "Lexend";
+    font-size: 12;
+}
+
+window {
+    width: 40%;
+    background-color: @surface;
+    border-width: 2px;
+    border-color: @primary;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 8px;
+}
+
+inputbar {
+    background-color: @surface-container;
+    border-radius: 6px;
+    padding: 8px 12px;
+    spacing: 8px;
+}
+
+prompt {
+    text-color: @secondary;
+    background-color: transparent;
+}
+
+textbox-prompt-colon {
+    text-color: @primary;
+    background-color: transparent;
+    str: ":";
+}
+
+entry {
+    background-color: transparent;
+    text-color: @on-surface;
+    placeholder: "Search...";
+    placeholder-color: @on-surface-variant;
+}
+
+listview {
+    background-color: transparent;
+    spacing: 4px;
+    scrollbar: false;
+    padding: 8px 0;
+}
+
+element {
+    background-color: transparent;
+    text-color: @on-surface;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @on-surface;
+}
+
+element normal.urgent {
+    background-color: @error-container;
+    text-color: @on-error-container;
+}
+
+element normal.active {
+    background-color: @primary-container;
+    text-color: @on-primary-container;
+}
+
+element selected.normal {
+    background-color: @tertiary;
+    text-color: @on-tertiary;
+}
+
+element selected.urgent {
+    background-color: @error;
+    text-color: @on-error;
+}
+
+element selected.active {
+    background-color: @secondary;
+    text-color: @on-secondary;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @on-surface;
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color: @error;
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color: @primary;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 24px;
+    margin: 0 8px 0 0;
+}
+
+scrollbar {
+    width: 4px;
+    border: 0;
+    handle-color: @primary;
+    handle-width: 4px;
+    padding: 0;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: @surface-container;
+    text-color: @on-surface;
+    border-radius: 6px;
+    margin: 4px;
+}
+
+button selected {
+    background-color: @primary;
+    text-color: @on-primary;
+}

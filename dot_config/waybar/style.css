@@ -11,35 +11,30 @@
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
-  /* background-color: #1e1e2e; */
-  /* background-color: #181825; */
-  /* background-color: #11111b; */
   background-color: @background;
-  /* background-color: rgba(24, 24, 37, 0.6); */
 }
 
 #workspaces button {
   padding: 0.3rem 0.6rem;
   margin: 0.4rem 0.25rem;
   border-radius: 6px;
-  /* background-color: #181825; */
-  background-color: #1e1e2e;
-  color: #cdd6f4;
+  background-color: @surface_container;
+  color: @on_surface;
 }
 
 #workspaces button:hover {
-  color: #1e1e2e;
-  background-color: #cdd6f4;
+  color: @on_primary;
+  background-color: @primary;
 }
 
 #workspaces button.active {
-  background-color: #1e1e2e;
-  color: #89b4fa;
+  background-color: @primary_container;
+  color: @on_primary_container;
 }
 
 #workspaces button.urgent {
-  background-color: #1e1e2e;
-  color: #f38ba8;
+  background-color: @error_container;
+  color: @on_error_container;
 }
 
 #clock,
@@ -57,21 +52,21 @@ window#waybar {
   padding: 0.3rem 0.6rem;
   margin: 0.4rem 0.25rem;
   border-radius: 6px;
-  /* background-color: #181825; */
-  background-color: #1e1e2e;
+  background-color: @surface_container;
+  color: @on_surface;
 }
 
 #mpris.playing {
-  color: #a6e3a1;
+  color: @primary;
 }
 
 #mpris.paused {
-  color: #9399b2;
+  color: @on_surface_variant;
 }
 
 #custom-sep {
   padding: 0px;
-  color: #585b70;
+  color: @outline;
 }
 
 window#waybar.empty #window {
@@ -79,50 +74,51 @@ window#waybar.empty #window {
 }
 
 #cpu {
-  color: #94e2d5;
+  color: @tertiary;
 }
 
 #memory {
-  color: #cba6f7;
+  color: @secondary;
 }
 
 #clock {
-  color: #74c7ec;
+  color: @primary;
 }
 
 #temperature {
-  color: #afeeee;
+  color: @tertiary_fixed_dim;
 }
 
 #clock.simpleclock {
-  color: #89b4fa;
+  color: @primary_fixed_dim;
 }
 
 #battery {
-  color: #9bd1a6;
+  color: @secondary_fixed_dim;
 }
 
 #window {
-  color: #cdd6f4;
+  color: @on_surface;
 }
 
 #pulseaudio {
-  color: #b4befe;
+  color: @primary_fixed_dim;
 }
 
 #pulseaudio.muted {
-  color: #a6adc8;
+  color: @outline;
 }
 
 #custom-logo {
-  color: #89b4fa;
+  color: @primary;
 }
 
 #custom-power {
-  color: #f38ba8;
+  color: @error;
 }
 
 tooltip {
-  background-color: #181825;
-  border: 2px solid #89b4fa;
+  background-color: @surface_container_high;
+  border: 2px solid @primary;
+  color: @on_surface;
 }
