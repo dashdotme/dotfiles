@@ -1,12 +1,11 @@
-// @theme "DarkBlue"
-
 @theme "material"
 
 configuration {
-    display-drun: "Apps";
-    display-window: "Windows";
-    display-combi: "Search";
-    show-icons: false;
-    icon-theme: "Papirus";
-    drun-display-format: "{name}";
+  modes: "window,drun,run,ssh,combi,keys,filebrowser,recursivebrowser";
+  display-drun: "Apps";
+  display-window: "Windows";
+  display-combi: "Search";
+  show-icons: false;
+  icon-theme: "Papirus";
+  drun-display-format: "{name}";
 }
