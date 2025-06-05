@@ -22,7 +22,7 @@ input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
 
 [templates.dunst]
-input_path = '~/.config/matugen/templates/dunstrc-colors.css'
+input_path = '~/.config/matugen/templates/dunstrc-colors'
 output_path = '~/.config/dunst/dunstrc'
 
 [templates.yazi]
