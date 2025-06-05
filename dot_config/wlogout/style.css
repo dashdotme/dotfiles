@@ -37,7 +37,7 @@ button:hover {
 }
 
 #lock {
-  background-image: image(url("/nix/store/gnwra9r89h3f32ym28gxgchw3vy0f3pj-wlogout-1.2.2/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+  background-image: image(url("./icons/lock.svg"));
 }
 
 #lock:focus,
@@ -48,7 +48,7 @@ button:hover {
 }
 
 #logout {
-  background-image: image(url("/nix/store/gnwra9r89h3f32ym28gxgchw3vy0f3pj-wlogout-1.2.2/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+  background-image: image(url("./icons/logout.svg"));
 }
 
 #logout:focus,
@@ -59,7 +59,7 @@ button:hover {
 }
 
 #suspend {
-  background-image: image(url("/nix/store/gnwra9r89h3f32ym28gxgchw3vy0f3pj-wlogout-1.2.2/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+  background-image: image(url("./icons/suspend.svg"));
 }
 
 #suspend:focus,
@@ -70,7 +70,7 @@ button:hover {
 }
 
 #hibernate {
-  background-image: image(url("/nix/store/gnwra9r89h3f32ym28gxgchw3vy0f3pj-wlogout-1.2.2/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+  background-image: image(url("./icons/hibernate.svg"));
 }
 
 #hibernate:focus,
@@ -81,7 +81,7 @@ button:hover {
 }
 
 #shutdown {
-  background-image: image(url("/nix/store/gnwra9r89h3f32ym28gxgchw3vy0f3pj-wlogout-1.2.2/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+  background-image: image(url("./icons/shutdown.svg"));
 }
 
 #shutdown:focus,
@@ -92,7 +92,7 @@ button:hover {
 }
 
 #reboot {
-  background-image: image(url("/nix/store/gnwra9r89h3f32ym28gxgchw3vy0f3pj-wlogout-1.2.2/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+  background-image: image(url("./icons/reboot.svg"));
 }
 
 #reboot:focus,
