@@ -3,9 +3,17 @@ return {
   { "williamboman/mason.nvim",           enabled = false },
   { "williamboman/mason-lspconfig.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim",       enabled = false },
+
+  -- extensions for people who can't type
   { "windwp/nvim-autopairs",             enabled = false },
   { "windwp/nvim-ts-autotag",            enabled = false },
-  { "catppuccin/nvim",                   name = "catppuccin", enabled = false },
+  { "echasnovski/mini.pairs",            enabled = false },
+
+  -- bundled themes
+  { "catppuccin/nvim",                   enabled = false },
+  { "folke/tokyonight.nvim",             enabled = false },
+
+  -- alt terminal to snacks
   {
     'akinsho/toggleterm.nvim',
     version = "*",
@@ -14,6 +22,8 @@ return {
       { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
     },
   },
+
+  -- theme (derived from wallpaper)
   {
     "AlphaTechnolog/pywal.nvim",
     lazy = false,
@@ -23,6 +33,8 @@ return {
       vim.cmd.colorscheme('pywal')
     end,
   },
+
+  -- syntax sugar - enclose things with {y/d/c}s{motion}{char}
   {
     "kylechui/nvim-surround",
     version = "^3.0.0",
@@ -31,18 +43,21 @@ return {
       require("nvim-surround").setup({})
     end
   },
+
+  -- mass file editing
   {
     "stevearc/oil.nvim",
     ---module 'oil'
     ---@type oil.SetupOpts
     opts = { default_file_explorer = false },
-    -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-      { "<leader>o", "<cmd>Oil<cr>", desc = "Open Oil" },
+      { "<leader>o", function() require("oil").toggle_float() end, desc = "Toggle Oil" },
     },
     lazy = false,
   },
+
+  -- quick file nav
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
@@ -52,11 +67,17 @@ return {
     },
     keys = {
       { "<leader>ha", function() require("harpoon"):list():add() end,                                    desc = "Harpoon add file" },
+
       { "<leader>hh", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "Harpoon menu" },
+
       { "<leader>h1", function() require("harpoon"):list():select(1) end,                                desc = "Harpoon file 1" },
+
       { "<leader>h2", function() require("harpoon"):list():select(2) end,                                desc = "Harpoon file 2" },
+
       { "<leader>h3", function() require("harpoon"):list():select(3) end,                                desc = "Harpoon file 3" },
+
       { "<leader>h4", function() require("harpoon"):list():select(4) end,                                desc = "Harpoon file 4" },
+
       {
         "<leader>fh",
         function()
@@ -91,6 +112,8 @@ return {
       require("harpoon"):setup()
     end,
   },
+
+  -- git ui
   {
     "NeogitOrg/neogit",
     keys = {
@@ -102,13 +125,16 @@ return {
       "folke/snacks.nvim",
     },
   },
+
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
       spec = {
         { "<leader>h", group = "Harpoon", icon = "󰛢" },
+
         { "<leader>o", group = "Oil", icon = "󰏇" },
+
         { "<leader>t", group = "Terminal", icon = "󰆍" },
       }
     },
