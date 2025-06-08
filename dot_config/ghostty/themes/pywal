@@ -1,0 +1,22 @@
+background = 030610
+foreground = e3d0c3
+
+cursor-color = e3d0c3
+
+palette = 0=030610
+palette = 1=E49F6B
+palette = 2=D6AF64
+palette = 3=467389
+palette = 4=8F7B84
+palette = 5=6894A1
+palette = 6=A39F9B
+palette = 7=e3d0c3
+
+palette = 8=9e9188
+palette = 9=E49F6B
+palette = 10=D6AF64
+palette = 11=467389
+palette = 12=8F7B84
+palette = 13=6894A1
+palette = 14=A39F9B
+palette = 15=e3d0c3

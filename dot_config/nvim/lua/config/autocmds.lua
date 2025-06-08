@@ -16,3 +16,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
   desc = "Remove trailing whitespace on save",
 })
+
+-- use static line numbers
+vim.opt.relativenumber = false
+vim.opt.number = true -- default

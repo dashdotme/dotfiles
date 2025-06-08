@@ -42,17 +42,22 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = tokyonight_moon
-auto-update-channel = tip
+theme = pywal
+auto-update-channel = stable
 
-#keybind = shift+super+left_bracket=previous_tab
-#keybind = shift+super+right_bracket=next_tab
-#keybind = shift+super+,=move_tab:-1
-#keybind = shift+super+.=move_tab:+1
-
+keybind = cmd+n=new_split:auto
+keybind = ctrl+n=new_split:auto
+keybind = cmd+q=close_surface
+keybind = ctrl+q=close_surface
 keybind = cmd+left_bracket=goto_split:previous
+keybind = ctrl+left_bracket=goto_split:previous
 keybind = cmd+right_bracket=goto_split:next
+keybind = ctrl+right_bracket=goto_split:next
 
 keybind = cmd+o=new_tab
+keybind = ctrl+o=new_tab
 keybind = cmd+shift+o=close_tab
+keybind = ctrl+shift+o=close_tab
 
+keybind = super+f=write_scrollback_file:open
+keybind = super+g=write_screen_file:open
