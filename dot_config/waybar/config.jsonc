@@ -110,7 +110,7 @@
         " "
       ]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pwvucontrol"
   },
   "battery": {
     "states": {
