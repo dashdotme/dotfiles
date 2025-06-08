@@ -136,3 +136,7 @@ fcd() {
     dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
+alias ls='eza'
+alias ll='eza -l'
+alias lt='eza --tree'
+alias la='eza -la'
