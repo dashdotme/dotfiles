@@ -20,3 +20,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- use static line numbers
 vim.opt.relativenumber = false
 vim.opt.number = true -- default
+
+vim.g.autoformat = false

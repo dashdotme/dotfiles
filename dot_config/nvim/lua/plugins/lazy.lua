@@ -15,9 +15,12 @@ return {
 
   -- alt terminal to snacks
   {
-    'akinsho/toggleterm.nvim',
+    "akinsho/toggleterm.nvim",
     version = "*",
-    config = true,
+    opts = {
+      direction = "horizontal",
+    },
+    -- config = true,
     keys = {
       { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
     },
@@ -29,8 +32,8 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require('pywal').setup()
-      vim.cmd.colorscheme('pywal')
+      require("pywal").setup()
+      vim.cmd.colorscheme "pywal"
     end,
   },
 
@@ -40,8 +43,8 @@ return {
     version = "^3.0.0",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({})
-    end
+      require("nvim-surround").setup {}
+    end,
   },
 
   -- mass file editing
@@ -52,7 +55,13 @@ return {
     opts = { default_file_explorer = false },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-      { "<leader>o", function() require("oil").toggle_float() end, desc = "Toggle Oil" },
+      {
+        "<leader>o",
+        function()
+          require("oil").toggle_float()
+        end,
+        desc = "Toggle Oil",
+      },
     },
     lazy = false,
   },
@@ -66,22 +75,58 @@ return {
       "folke/snacks.nvim",
     },
     keys = {
-      { "<leader>ha", function() require("harpoon"):list():add() end,                                    desc = "Harpoon add file" },
+      {
+        "<leader>ha",
+        function()
+          require("harpoon"):list():add()
+        end,
+        desc = "Harpoon add file",
+      },
 
-      { "<leader>hh", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "Harpoon menu" },
+      {
+        "<leader>hh",
+        function()
+          require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+        end,
+        desc = "Harpoon menu",
+      },
 
-      { "<leader>h1", function() require("harpoon"):list():select(1) end,                                desc = "Harpoon file 1" },
+      {
+        "<leader>h1",
+        function()
+          require("harpoon"):list():select(1)
+        end,
+        desc = "Harpoon file 1",
+      },
 
-      { "<leader>h2", function() require("harpoon"):list():select(2) end,                                desc = "Harpoon file 2" },
+      {
+        "<leader>h2",
+        function()
+          require("harpoon"):list():select(2)
+        end,
+        desc = "Harpoon file 2",
+      },
 
-      { "<leader>h3", function() require("harpoon"):list():select(3) end,                                desc = "Harpoon file 3" },
+      {
+        "<leader>h3",
+        function()
+          require("harpoon"):list():select(3)
+        end,
+        desc = "Harpoon file 3",
+      },
 
-      { "<leader>h4", function() require("harpoon"):list():select(4) end,                                desc = "Harpoon file 4" },
+      {
+        "<leader>h4",
+        function()
+          require("harpoon"):list():select(4)
+        end,
+        desc = "Harpoon file 4",
+      },
 
       {
         "<leader>fh",
         function()
-          local harpoon = require("harpoon")
+          local harpoon = require "harpoon"
           local items = harpoon:list().items
           local picker_items = {}
           for i, item in ipairs(items) do
@@ -97,15 +142,15 @@ return {
             vim.notify("No harpoon marks found", vim.log.levels.WARN)
             return
           end
-          Snacks.picker({
+          Snacks.picker {
             source = "static",
             items = picker_items,
             confirm = function(item)
               harpoon:list():select(item.idx)
             end,
-          })
+          }
         end,
-        desc = "Harpoon marks (snacks)"
+        desc = "Harpoon marks (snacks)",
       },
     },
     config = function()
@@ -126,6 +171,38 @@ return {
     },
   },
 
+  -- vim motion visualizer
+  {
+    "tris203/precognition.nvim",
+    opts = {
+      -- startVisible = true,
+      -- showBlankVirtLine = true,
+      -- highlightColor = { link = "Comment" },
+      -- hints = {
+      --      Caret = { text = "^", prio = 2 },
+      --      Dollar = { text = "$", prio = 1 },
+      --      MatchingPair = { text = "%", prio = 5 },
+      --      Zero = { text = "0", prio = 1 },
+      --      w = { text = "w", prio = 10 },
+      --      b = { text = "b", prio = 9 },
+      --      e = { text = "e", prio = 8 },
+      --      W = { text = "W", prio = 7 },
+      --      B = { text = "B", prio = 6 },
+      --      E = { text = "E", prio = 5 },
+      -- },
+      -- gutterHints = {
+      --     G = { text = "G", prio = 10 },
+      --     gg = { text = "gg", prio = 9 },
+      --     PrevParagraph = { text = "{", prio = 8 },
+      --     NextParagraph = { text = "}", prio = 8 },
+      -- },
+      -- disabled_fts = {
+      --     "startify",
+      -- },
+    },
+  },
+
+  -- custom binds
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -136,16 +213,16 @@ return {
         { "<leader>o", group = "Oil", icon = "󰏇" },
 
         { "<leader>t", group = "Terminal", icon = "󰆍" },
-      }
+      },
     },
     keys = {
       {
         "<leader>?",
         function()
-          require("which-key").show({ global = false })
+          require("which-key").show { global = false }
         end,
         desc = "Buffer Local Keymaps (which-key)",
       },
     },
-  }
+  },
 }

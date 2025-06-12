@@ -19,6 +19,11 @@ if [ "$OS_TYPE" = "macos" ]; then
   if [ -f /opt/homebrew/etc/profile.d/z.sh ]; then
     source /opt/homebrew/etc/profile.d/z.sh
   fi
+  (cat ~/.cache/wal/sequences &)
+  eval "$(zoxide init zsh)"
+  export EDITOR="nvim"
+  export VISUAL="nvim"
+  alias rebuild="sudo darwin-rebuild switch --flake /etc/nix-darwin#macbook"
 else
   # Linux-specific settings
   export NIX_TARGET="${NIX_TARGET:-$([ -e /sys/class/power_supply/BAT0 ] && echo "xps" || echo "home")}"
@@ -132,8 +137,8 @@ export GITHUB_USERNAME=dashdotme
 # git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 fcd() {
-    local dir
-    dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+  local dir
+  dir=$(find ${1:-.} -type d 2>/dev/null | fzf +m) && cd "$dir"
 }
 
 alias ls='eza'
