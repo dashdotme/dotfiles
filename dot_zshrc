@@ -1,3 +1,5 @@
+export SHELL=$(which zsh)
+
 # Detect OS type
 case "$(uname -s)" in
   Darwin*)
@@ -33,8 +35,8 @@ else
   elif [ -f $HOME/z/z.sh ]; then
     source $HOME/z/z.sh
   fi
-  # pywal theming
-  (cat ~/.cache/wal/sequences &)
+  # pywal theming - overrides colours
+  # (cat ~/.cache/wal/sequences &)
   eval "$(zoxide init zsh)"
 fi
 
@@ -70,28 +72,28 @@ fi
 alias python="python3"
 
 # Java setup - OS specific
-if [ "$OS_TYPE" = "macos" ]; then
-  # macOS Java configuration
-  if [ -x /usr/libexec/java_home ]; then
-    export JAVA_HOME=$(/usr/libexec/java_home -v 23 2>/dev/null || /usr/libexec/java_home 2>/dev/null)
-    export PATH="$JAVA_HOME/bin:$PATH"
-    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-  fi
-elif [ "$OS_TYPE" = "linux" ]; then
-  # Linux Java configuration - uncomment and adjust if needed
-  # Try to find Java automatically
-  # Temporarily set NULL_GLOB to prevent errors when patterns don't match
-  setopt NULL_GLOB 2>/dev/null || true
-  for java_path in /usr/lib/jvm/default-java /usr/lib/jvm/java-[0-9]*-openjdk* /usr/lib/jvm/java-[0-9]*-oracle; do
-    if [ -d "$java_path" ]; then
-      export JAVA_HOME="$java_path"
-      export PATH="$JAVA_HOME/bin:$PATH"
-      break
-    fi
-  done
-  # Reset to default globbing behavior
-  unsetopt NULL_GLOB 2>/dev/null || true
-fi
+# if [ "$OS_TYPE" = "macos" ]; then
+#   # macOS Java configuration
+#   if [ -x /usr/libexec/java_home ]; then
+#     export JAVA_HOME=$(/usr/libexec/java_home -v 23 2>/dev/null || /usr/libexec/java_home 2>/dev/null)
+#     export PATH="$JAVA_HOME/bin:$PATH"
+#     export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+#   fi
+# elif [ "$OS_TYPE" = "linux" ]; then
+#   # Linux Java configuration - uncomment and adjust if needed
+#   # Try to find Java automatically
+#   # Temporarily set NULL_GLOB to prevent errors when patterns don't match
+#   setopt NULL_GLOB 2>/dev/null || true
+#   for java_path in /usr/lib/jvm/default-java /usr/lib/jvm/java-[0-9]*-openjdk* /usr/lib/jvm/java-[0-9]*-oracle; do
+#     if [ -d "$java_path" ]; then
+#       export JAVA_HOME="$java_path"
+#       export PATH="$JAVA_HOME/bin:$PATH"
+#       break
+#     fi
+#   done
+#   # Reset to default globbing behavior
+#   unsetopt NULL_GLOB 2>/dev/null || true
+# fi
 
 # Terraform completion
 if command -v terraform &>/dev/null; then
@@ -112,7 +114,6 @@ fi
 # fnm (Fast Node Manager) - OS specific paths
 if [ "$OS_TYPE" = "macos" ]; then
   FNM_PATH="/Users/dashvallance/Library/Application Support/fnm"
-  eval "$(fnm env --use-on-cd --shell zsh)"
 else
   FNM_PATH="$HOME/.local/share/fnm"
 fi
@@ -120,21 +121,12 @@ fi
 # Load fnm if it exists at the detected path
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
-  command -v fnm &>/dev/null && eval "$(fnm env 2>/dev/null || true)"
-
   # fnm autocomplete
   command -v fnm &>/dev/null && eval "$(fnm env --use-on-cd --shell zsh 2>/dev/null || true)"
 fi
 
 # GitHub username
 export GITHUB_USERNAME=dashdotme
-
-# Note for setup:
-# Run the following commands to install missing plugins:
-#
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 fcd() {
   local dir
@@ -145,3 +137,23 @@ alias ls='eza'
 alias ll='eza -l'
 alias lt='eza --tree'
 alias la='eza -la'
+
+wat() {
+  if [ -z "$1" ]; then
+    echo "Usage: wat <command>" >&2
+    return 1
+  fi
+
+  if command -v "$1" >/dev/null 2>&1; then
+    echo "\033[32m'$1' is already installed at: $(which "$1")\033[0m" >&2
+    return 0
+  fi
+
+  local p=$(nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root "/bin/$1" 2>/dev/null)
+  if [ -n "$p" ]; then
+    echo "\033[34mThe program '$1' is available in:\033[0m" >&2
+    printf "  \033[36m%s\033[0m\n" $p >&2
+  else
+    echo "\033[31mNo package found for: $1\033[0m" >&2
+  fi
+}
