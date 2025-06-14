@@ -19,7 +19,13 @@ return {
 
         -- Python
         pyright = {},
-        ruff_lsp = {},
+        ruff = {
+          init_options = {
+            settings = {
+              args = {}
+            }
+          }
+        },
 
         -- JavaScript/TypeScript
         tsserver = {},
