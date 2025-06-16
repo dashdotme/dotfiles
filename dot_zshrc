@@ -71,30 +71,6 @@ fi
 # Aliases
 alias python="python3"
 
-# Java setup - OS specific
-# if [ "$OS_TYPE" = "macos" ]; then
-#   # macOS Java configuration
-#   if [ -x /usr/libexec/java_home ]; then
-#     export JAVA_HOME=$(/usr/libexec/java_home -v 23 2>/dev/null || /usr/libexec/java_home 2>/dev/null)
-#     export PATH="$JAVA_HOME/bin:$PATH"
-#     export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-#   fi
-# elif [ "$OS_TYPE" = "linux" ]; then
-#   # Linux Java configuration - uncomment and adjust if needed
-#   # Try to find Java automatically
-#   # Temporarily set NULL_GLOB to prevent errors when patterns don't match
-#   setopt NULL_GLOB 2>/dev/null || true
-#   for java_path in /usr/lib/jvm/default-java /usr/lib/jvm/java-[0-9]*-openjdk* /usr/lib/jvm/java-[0-9]*-oracle; do
-#     if [ -d "$java_path" ]; then
-#       export JAVA_HOME="$java_path"
-#       export PATH="$JAVA_HOME/bin:$PATH"
-#       break
-#     fi
-#   done
-#   # Reset to default globbing behavior
-#   unsetopt NULL_GLOB 2>/dev/null || true
-# fi
-
 # Terraform completion
 if command -v terraform &>/dev/null; then
   autoload -U +X bashcompinit && bashcompinit
