@@ -49,10 +49,15 @@ keybind = cmd+n=new_split:auto
 keybind = ctrl+n=new_split:auto
 keybind = cmd+q=close_surface
 keybind = ctrl+q=close_surface
+
 keybind = cmd+left_bracket=goto_split:previous
 keybind = ctrl+left_bracket=goto_split:previous
 keybind = cmd+right_bracket=goto_split:next
 keybind = ctrl+right_bracket=goto_split:next
+keybind = cmd+h=goto_split:previous
+keybind = ctrl+h=goto_split:previous
+keybind = cmd+l=goto_split:next
+keybind = ctrl+l=goto_split:next
 
 keybind = cmd+o=new_tab
 keybind = ctrl+o=new_tab
