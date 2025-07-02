@@ -1,4 +1,4 @@
-[manager]
-[manager.bookmarks]
+[mgr]
+[mgr.bookmarks]
 m = "/run/media/dash"
 M = "/media"

@@ -65,5 +65,5 @@ keybind = ctrl+o=new_tab
 keybind = cmd+shift+o=close_tab
 keybind = ctrl+shift+o=close_tab
 
-keybind = super+f=write_scrollback_file:open
-keybind = super+g=write_screen_file:open
+keybind = super+b=write_scrollback_file:open
+keybind = super+shift+b=write_screen_file:open
