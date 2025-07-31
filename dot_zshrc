@@ -104,6 +104,9 @@ fi
 # GitHub username
 export GITHUB_USERNAME=dashdotme
 
+# direnv
+eval "$(direnv hook zsh)"
+
 fcd() {
   local dir
   dir=$(find ${1:-.} -type d 2>/dev/null | fzf +m) && cd "$dir"
