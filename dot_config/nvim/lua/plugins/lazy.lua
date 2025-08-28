@@ -4,7 +4,6 @@ return {
   { "williamboman/mason-lspconfig.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim",       enabled = false },
 
-  -- extensions for people who can't type
   { "windwp/nvim-autopairs",             enabled = false },
   { "windwp/nvim-ts-autotag",            enabled = false },
   { "echasnovski/mini.pairs",            enabled = false },
@@ -12,6 +11,32 @@ return {
   -- bundled themes
   { "catppuccin/nvim",                   enabled = false },
   { "folke/tokyonight.nvim",             enabled = false },
+
+  -- snacks explorer - overrides only
+  {
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      opts.picker = vim.tbl_deep_extend("force", opts.picker or {}, {
+        hidden = true,
+        ignored = true,
+      })
+
+      opts.picker.sources = opts.picker.sources or {}
+
+      opts.picker.sources.files = vim.tbl_deep_extend("force", opts.picker.sources.files or {}, {
+        hidden = true,
+        ignored = true,
+      })
+
+      opts.picker.sources.git_files = vim.tbl_deep_extend("force", opts.picker.sources.git_files or {}, {
+        hidden = true,
+        ignored = true,
+        untracked = true,
+      })
+
+      return opts
+    end,
+  },
 
   -- alt terminal to snacks
   {
