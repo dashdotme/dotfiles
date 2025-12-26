@@ -17,7 +17,7 @@
   "modules-right": [
     "cpu",
     "memory",
-    "temperature",
+    // "temperature",
     "pulseaudio",
     "clock",
     "clock#simpleclock",

@@ -1,16 +1,16 @@
 return {
   -- nixos doesn't support mason
-  { "williamboman/mason.nvim",           enabled = false },
-  { "williamboman/mason-lspconfig.nvim", enabled = false },
-  { "jay-babu/mason-null-ls.nvim",       enabled = false },
+  { "mason-org/mason.nvim",           enabled = false },
+  { "mason-org/mason-lspconfig.nvim", enabled = false },
+  { "jay-babu/mason-null-ls.nvim",    enabled = false },
 
-  { "windwp/nvim-autopairs",             enabled = false },
-  { "windwp/nvim-ts-autotag",            enabled = false },
-  { "echasnovski/mini.pairs",            enabled = false },
+  { "windwp/nvim-autopairs",          enabled = false },
+  { "windwp/nvim-ts-autotag",         enabled = false },
+  { "nvim-mini/mini.pairs",           enabled = false },
 
   -- bundled themes
-  { "catppuccin/nvim",                   enabled = false },
-  { "folke/tokyonight.nvim",             enabled = false },
+  { "catppuccin/nvim",                enabled = false },
+  { "folke/tokyonight.nvim",          enabled = false },
 
   -- snacks explorer - overrides only
   {
@@ -196,7 +196,7 @@ return {
     },
   },
 
- -- custom binds
+  -- custom binds
   {
     "folke/which-key.nvim",
     event = "VeryLazy",

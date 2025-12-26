@@ -28,7 +28,7 @@ if [ "$OS_TYPE" = "macos" ]; then
   alias rebuild="sudo darwin-rebuild switch --flake /etc/nix-darwin#macbook"
 else
   # Linux-specific settings
-  export NIX_TARGET="${NIX_TARGET:-$([ -e /sys/class/power_supply/BAT0 ] && echo "xps" || echo "home")}"
+  export NIX_TARGET="${NIX_TARGET:-$([ -e /sys/class/power_supply/BAT0 ] && echo "fw" || echo "home")}"
   alias rebuild="sudo nixos-rebuild switch --flake /etc/nixos#$NIX_TARGET"
   if [ -f /usr/share/z/z.sh ]; then
     source /usr/share/z/z.sh
