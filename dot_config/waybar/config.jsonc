@@ -36,6 +36,7 @@
   },
   "mpris": {
     "player": "spotify",
+    "max-length": 40,
     "dynamic-order": [
       "artist",
       "title"
